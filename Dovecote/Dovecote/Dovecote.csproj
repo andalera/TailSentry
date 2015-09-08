@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7471307C-DA0D-45FF-940F-5AE756C08716}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dovecote</RootNamespace>
+    <AssemblyName>Dovecote</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdPartyLibs\Castle-Windsor-2.1.1\bin\net-3.5\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdPartyLibs\Castle-Windsor-2.1.1\bin\net-3.5\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdPartyLibs\Castle-Windsor-2.1.1\bin\net-3.5\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Retlang, Version=0.4.2.0, Culture=neutral, PublicKeyToken=a99b3bce1dc72e93, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdPartyLibs\Retlang.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DovecoteInstaller.cs" />
+    <Compile Include="Eventing\Aggregator\EventAggregator.cs" />
+    <Compile Include="Eventing\Aggregator\EventPublisher.cs" />
+    <Compile Include="Eventing\Attributes\BatchOptionsAttribute.cs" />
+    <Compile Include="Eventing\Attributes\HandleOnSpecificContextAttribute.cs" />
+    <Compile Include="Eventing\Context\ContextFactory.cs">
+    </Compile>
+    <Compile Include="Eventing\Context\IContextFactory.cs" />
+    <Compile Include="Eventing\Context\MarshalingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Eventing\Context\SynchronizationFiber.cs" />
+    <Compile Include="Eventing\Facilities\EventAutoRegistrationFacility.cs" />
+    <Compile Include="Eventing\Facilities\UnsubscriberInterceptorFacility.cs" />
+    <Compile Include="Eventing\Interceptors\UnsubscriberInterceptor.cs" />
+    <Compile Include="Eventing\Interfaces\IEventAggregator.cs" />
+    <Compile Include="Eventing\Interfaces\IListen.cs" />
+    <Compile Include="Eventing\Interfaces\IListenerDisposer.cs" />
+    <Compile Include="Eventing\Interfaces\IListenFor.cs" />
+    <Compile Include="Eventing\Interfaces\IListenForInBatches.cs" />
+    <Compile Include="Eventing\Interfaces\IPublisher.cs" />
+    <Compile Include="Eventing\Managers\ChannelManager.cs" />
+    <Compile Include="Eventing\Managers\IChannelManager.cs" />
+    <Compile Include="Eventing\Managers\IListenerDisposerManager.cs" />
+    <Compile Include="Eventing\Managers\ListenerDisposalManager.cs" />
+    <Compile Include="Eventing\Rules\DisposableSpec.cs" />
+    <Compile Include="Eventing\Rules\ListenerSpec.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specification\AndSpecification.cs" />
+    <Compile Include="Specification\CompositeSpecification.cs" />
+    <Compile Include="Specification\NotSpecification.cs" />
+    <Compile Include="Specification\OrSpecification.cs" />
+    <Compile Include="Specification\Specification.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

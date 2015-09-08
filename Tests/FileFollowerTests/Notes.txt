@@ -1,0 +1,6 @@
+﻿Possible Tail implementations:
+http://www.codeproject.com/KB/files/tail.aspx?msg=1126743#xx1126743xx
+
+http://www.codeproject.com/KB/cs/wintail.aspx
+     
+     
